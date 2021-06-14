@@ -1,21 +1,20 @@
 package com.rollerbladeRentApp.api.model;
 
-import lombok.*;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class UpdateCustomer {
 
     private Long customerId;
     private String name;
     private String lastName;
-    private String pesel;
     private String email;
     private String phoneNumber;
-    private List<Reservation> reservationList;
 
 }
