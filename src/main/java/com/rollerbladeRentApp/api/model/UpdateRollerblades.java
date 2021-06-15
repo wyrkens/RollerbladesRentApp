@@ -9,11 +9,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateCustomer {
+public class UpdateRollerblades {
 
-    private Long customerId;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
+    private Long rollerbladesId;
+    private String status;
+    private int price;
 
 }
