@@ -1,4 +1,4 @@
-package com.rollerbladeRentApp.repository;
+package com.rollerbladeRentApp.repository.employee;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

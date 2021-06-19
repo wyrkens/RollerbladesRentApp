@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reservation {
+public class Rent {
 
     private Long reservationId;
     private Customer customer;

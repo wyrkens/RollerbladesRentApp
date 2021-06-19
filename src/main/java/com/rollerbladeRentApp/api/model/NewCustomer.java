@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class NewCustomer {
 
-    private Long customerId;
     private String name;
     private String lastName;
     private String pesel;

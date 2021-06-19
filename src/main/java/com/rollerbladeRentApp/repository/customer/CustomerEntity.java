@@ -1,4 +1,4 @@
-package com.rollerbladeRentApp.repository;
+package com.rollerbladeRentApp.repository.customer;
 
 import lombok.NoArgsConstructor;
 

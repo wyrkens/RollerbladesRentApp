@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class NewRollerblades {
 
-    private Long rollerbladesId;
     private String status;
     private String brand;
     private String type;
