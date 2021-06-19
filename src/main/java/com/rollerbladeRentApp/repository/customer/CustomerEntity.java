@@ -1,12 +1,20 @@
 package com.rollerbladeRentApp.repository.customer;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "customers")
-@NoArgsConstructor
 public class CustomerEntity {
 
     @Id

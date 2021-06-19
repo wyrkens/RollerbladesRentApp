@@ -6,6 +6,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Customer {
 
     private Long customerId;
