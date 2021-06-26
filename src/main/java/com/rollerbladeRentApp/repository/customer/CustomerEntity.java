@@ -26,4 +26,11 @@ public class CustomerEntity {
     private String email;
     private String phoneNumber;
 
+    public CustomerEntity updateCustomer(String newLastName, String newEmail, String newPhoneNumber) {
+        this.lastName = newLastName;
+        this.email = newEmail;
+        this.phoneNumber = newPhoneNumber;
+        return this;
+    }
+
 }

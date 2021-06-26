@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,12 +24,10 @@ public class CustomerService {
 
     @Transactional
     public void updateCustomer(UpdateCustomer updateCustomer) {
-        CustomerEntity customerEntity = customerRepository.findById(updateCustomer.getCustomerId())
+        customerRepository.findById(updateCustomer.getCustomerId())
+                .map(cust -> cust.updateCustomer(updateCustomer.getLastName(), updateCustomer.getEmail(),
+                        updateCustomer.getPhoneNumber()))
                 .orElseThrow(() -> new IllegalStateException("Customer with id: " + updateCustomer.getCustomerId() + " doesn't exists"));
-        customerEntity.setLastName(updateCustomer.getLastName());
-        customerEntity.setEmail(updateCustomer.getEmail());
-        customerEntity.setPhoneNumber(updateCustomer.getPhoneNumber());
-        customerRepository.save(customerEntity);
     }
 
     public void deleteCustomer(Long id) {
