@@ -2,6 +2,8 @@ package com.rollerbladeRentApp.api.model;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,5 +17,6 @@ public class Customer {
     private String pesel;
     private String email;
     private String phoneNumber;
+    private List<Rent> reservationList;
 
 }
