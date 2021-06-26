@@ -17,6 +17,6 @@ public class Customer {
     private String pesel;
     private String email;
     private String phoneNumber;
-    private List<Rent> reservationList;
+    private List<Rent> rentList;
 
 }
