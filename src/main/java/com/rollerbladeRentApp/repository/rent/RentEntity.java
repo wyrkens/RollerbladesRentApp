@@ -2,6 +2,9 @@ package com.rollerbladeRentApp.repository.rent;
 
 import com.rollerbladeRentApp.repository.customer.CustomerEntity;
 import com.rollerbladeRentApp.repository.rollerblades.RollerbladesEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "rents")
 public class RentEntity {

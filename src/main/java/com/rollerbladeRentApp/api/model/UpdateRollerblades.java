@@ -13,6 +13,5 @@ public class UpdateRollerblades {
 
     private Long rollerbladesId;
     private String status;
-    private int price;
 
 }

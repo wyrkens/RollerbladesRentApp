@@ -35,6 +35,7 @@ public class CustomerController {
     }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateCustomer(@RequestBody UpdateCustomer updateCustomer) {
         customerService.updateCustomer(updateCustomer);
     }
@@ -52,6 +53,6 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public Customer getOneById(@PathVariable Long id) {
-        return customerService.getOneById(id);
+        return customerService.getById(id);
     }
 }

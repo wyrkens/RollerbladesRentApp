@@ -1,14 +1,20 @@
 package com.rollerbladeRentApp.repository.rollerblades;
 
 import com.rollerbladeRentApp.repository.rent.RentEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "rollerblades")
+@Getter
+@AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Builder
+@Table(name = "rollerblades")
 public class RollerbladesEntity {
 
     @Id
@@ -21,5 +27,10 @@ public class RollerbladesEntity {
     private int price;
     @OneToMany(mappedBy = "rollerblades")
     private Set<RentEntity> rent;
+
+    public RollerbladesEntity updateRollerblades(String status) {
+        this.status = status;
+        return this;
+    }
 
 }

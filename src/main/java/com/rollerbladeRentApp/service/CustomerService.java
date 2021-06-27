@@ -3,9 +3,10 @@ package com.rollerbladeRentApp.service;
 import com.rollerbladeRentApp.api.model.Customer;
 import com.rollerbladeRentApp.api.model.NewCustomer;
 import com.rollerbladeRentApp.api.model.UpdateCustomer;
-import com.rollerbladeRentApp.repository.customer.CustomerEntity;
 import com.rollerbladeRentApp.repository.customer.CustomerRepository;
+import com.rollerbladeRentApp.service.mapper.CustomerMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,9 +18,10 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
 
     public void registerCustomer(NewCustomer newCustomer) {
-        customerRepository.save(entityToNewCustomer(newCustomer));
+        customerRepository.save(customerMapper.entityToNewCustomer(newCustomer));
     }
 
     @Transactional
@@ -27,7 +29,7 @@ public class CustomerService {
         customerRepository.findById(updateCustomer.getCustomerId())
                 .map(cust -> cust.updateCustomer(updateCustomer.getLastName(), updateCustomer.getEmail(),
                         updateCustomer.getPhoneNumber()))
-                .orElseThrow(() -> new IllegalStateException("Customer with id: " + updateCustomer.getCustomerId() + " doesn't exists"));
+                .orElseThrow(() -> new IllegalStateException("Customer with id: " + updateCustomer.getCustomerId() + " doesn't exists."));
     }
 
     public void deleteCustomer(Long id) {
@@ -36,34 +38,13 @@ public class CustomerService {
 
     public List<Customer> getAll() {
         return customerRepository.findAll().stream()
-                .map(this::customerToEntity)
+                .map(customerMapper::customerToEntity)
                 .collect(Collectors.toList());
     }
 
-    public Customer getOneById(Long id) {
+    public Customer getById(Long id) {
         return customerRepository.findById(id)
-                .map(this::customerToEntity)
-                .orElseThrow(() -> new IllegalStateException("Customer doesn't exists"));
-    }
-
-    private CustomerEntity entityToNewCustomer(NewCustomer newCustomer) {
-        return CustomerEntity.builder()
-                .name(newCustomer.getName())
-                .lastName(newCustomer.getLastName())
-                .pesel(newCustomer.getPesel())
-                .email(newCustomer.getEmail())
-                .phoneNumber(newCustomer.getPhoneNumber())
-                .build();
-    }
-
-    private Customer customerToEntity(CustomerEntity customerEntity) {
-        return Customer.builder()
-                .customerId(customerEntity.getCustomerId())
-                .name(customerEntity.getName())
-                .lastName(customerEntity.getLastName())
-                .pesel(customerEntity.getPesel())
-                .email(customerEntity.getEmail())
-                .phoneNumber(customerEntity.getPhoneNumber())
-                .build();
+                .map(customerMapper::customerToEntity)
+                .orElseThrow(() -> new IllegalStateException("Customer with id: " + id + " doesn't exists."));
     }
 }
