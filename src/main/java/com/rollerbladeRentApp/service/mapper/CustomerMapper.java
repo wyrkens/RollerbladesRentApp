@@ -3,7 +3,6 @@ package com.rollerbladeRentApp.service.mapper;
 import com.rollerbladeRentApp.api.model.Customer;
 import com.rollerbladeRentApp.api.model.NewCustomer;
 import com.rollerbladeRentApp.repository.customer.CustomerEntity;
-import org.springframework.context.annotation.Bean;
 
 public class CustomerMapper {
 
