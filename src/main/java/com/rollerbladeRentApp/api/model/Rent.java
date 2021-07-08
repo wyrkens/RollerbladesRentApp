@@ -8,11 +8,12 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Rent {
 
     private Long reservationId;
-    private Customer customer;
-    private Rollerblades rollerblades;
+    private Customer customerId;
+    private Rollerblades rollerbladesId;
     private int price;
     private LocalDate loanTime;
     private LocalDate returnTime;
