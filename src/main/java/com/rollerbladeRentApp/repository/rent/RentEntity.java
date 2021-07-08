@@ -3,6 +3,7 @@ package com.rollerbladeRentApp.repository.rent;
 import com.rollerbladeRentApp.repository.customer.CustomerEntity;
 import com.rollerbladeRentApp.repository.rollerblades.RollerbladesEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,7 @@ import java.time.LocalDate;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "rents")
 public class RentEntity {

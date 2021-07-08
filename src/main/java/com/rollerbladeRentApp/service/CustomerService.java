@@ -6,7 +6,6 @@ import com.rollerbladeRentApp.api.model.UpdateCustomer;
 import com.rollerbladeRentApp.repository.customer.CustomerRepository;
 import com.rollerbladeRentApp.service.mapper.CustomerMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

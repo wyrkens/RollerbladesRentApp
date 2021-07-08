@@ -3,7 +3,9 @@ package com.rollerbladeRentApp.service.mapper;
 import com.rollerbladeRentApp.api.model.Customer;
 import com.rollerbladeRentApp.api.model.NewCustomer;
 import com.rollerbladeRentApp.repository.customer.CustomerEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerMapper {
 
     public CustomerEntity entityToNewCustomer(NewCustomer newCustomer) {

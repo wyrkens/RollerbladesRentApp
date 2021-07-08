@@ -3,7 +3,9 @@ package com.rollerbladeRentApp.service.mapper;
 import com.rollerbladeRentApp.api.model.NewRollerblades;
 import com.rollerbladeRentApp.api.model.Rollerblades;
 import com.rollerbladeRentApp.repository.rollerblades.RollerbladesEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RollerbladesMapper {
 
     public RollerbladesEntity entityToNewRollerblades(NewRollerblades newRollerblades) {
