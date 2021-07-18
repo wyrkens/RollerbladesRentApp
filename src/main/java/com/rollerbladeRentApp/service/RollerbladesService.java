@@ -26,7 +26,7 @@ public class RollerbladesService {
 
     @Transactional
     public void updateRollerblades(UpdateRollerblades updateRollerblades) {
-        RollerbladesEntity entity = rollerbladesRepository.findByRollerbladesId(updateRollerblades.getRollerbladesId())
+        rollerbladesRepository.findByRollerbladesId(updateRollerblades.getRollerbladesId())
                 .map(roller -> roller.updateRollerblades(updateRollerblades.getStatus()))
                 .orElseThrow(() -> new IllegalStateException("Rollerblades with id: " + updateRollerblades.getRollerbladesId() + " doesn't exists."));
     }

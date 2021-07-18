@@ -25,7 +25,7 @@ public class RentService {
 
     @Transactional
     public void updateRent(UpdateRent updateRent) {
-        RentEntity entity = rentRepository.findByRentId(updateRent.getRentId())
+        rentRepository.findByRentId(updateRent.getRentId())
                 .map(rent -> rent.updateRent(updateRent.getPrice(), updateRent.getReturnTime()))
                 .orElseThrow(() -> new IllegalStateException("Rent with id: " + updateRent.getRentId() + " doesn't exists."));
     }

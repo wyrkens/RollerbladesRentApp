@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CustomerController {
 
-    private final CustomerService customerService;
+    public final CustomerService customerService;
 
     @PostMapping
     public ResponseEntity registerCustomer(@RequestBody NewCustomer newCustomer, BindingResult bindingResult) {
