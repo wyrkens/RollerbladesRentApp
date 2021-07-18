@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class UpdateRent {
 
+    private Long rentId;
     private int price;
-    private LocalDate loanTime;
     private LocalDate returnTime;
 }

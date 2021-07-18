@@ -1,12 +1,13 @@
 package com.rollerbladeRentApp.repository.customer;
 
+import com.rollerbladeRentApp.repository.rent.RentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @AllArgsConstructor
@@ -24,6 +25,8 @@ public class CustomerEntity {
     private String pesel;
     private String email;
     private String phoneNumber;
+    @OneToMany(mappedBy = "customer")
+    private Set<RentEntity> rentList;
 
     public CustomerEntity updateCustomer(String newLastName, String newEmail, String newPhoneNumber) {
         this.lastName = newLastName;

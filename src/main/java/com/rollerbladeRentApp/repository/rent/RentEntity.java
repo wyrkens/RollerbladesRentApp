@@ -37,4 +37,9 @@ public class RentEntity {
     private LocalDate loanTime;
     private LocalDate returnTime;
 
+    public RentEntity updateRent(int newPrice, LocalDate newReturnTime) {
+        this.price = newPrice;
+        this.returnTime = newReturnTime;
+        return this;
+    }
 }

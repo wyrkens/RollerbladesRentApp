@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 public class Rent {
 
-    private Long reservationId;
+    private Long rentId;
     private Customer customerId;
     private Rollerblades rollerbladesId;
     private int price;
