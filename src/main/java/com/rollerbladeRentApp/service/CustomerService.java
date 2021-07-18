@@ -20,7 +20,7 @@ public class CustomerService {
     private final CustomerMapper customerMapper;
 
     public void registerCustomer(NewCustomer newCustomer) {
-        customerRepository.save(customerMapper.entityToNewCustomer(newCustomer));
+        customerRepository.save(customerMapper.newModelToEntity(newCustomer));
     }
 
     @Transactional
@@ -37,13 +37,13 @@ public class CustomerService {
 
     public List<Customer> getAll() {
         return customerRepository.findAll().stream()
-                .map(customerMapper::customerToEntity)
+                .map(customerMapper::entityToModel)
                 .collect(Collectors.toList());
     }
 
     public Customer getById(Long id) {
         return customerRepository.findById(id)
-                .map(customerMapper::customerToEntity)
+                .map(customerMapper::entityToModel)
                 .orElseThrow(() -> new IllegalStateException("Customer with id: " + id + " doesn't exists."));
     }
 }

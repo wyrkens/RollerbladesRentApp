@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RollerbladesMapper {
 
-    public RollerbladesEntity entityToNewRollerblades(NewRollerblades newRollerblades) {
+    public RollerbladesEntity newModelToEntity(NewRollerblades newRollerblades) {
         return RollerbladesEntity.builder()
                 .status(newRollerblades.getStatus())
                 .brand(newRollerblades.getBrand())
@@ -18,7 +18,7 @@ public class RollerbladesMapper {
                 .build();
     }
 
-    public Rollerblades rollerbladesToEntity(RollerbladesEntity entity) {
+    public Rollerblades entityToModel(RollerbladesEntity entity) {
         return Rollerblades.builder()
                 .rollerbladesId(entity.getRollerbladesId())
                 .status(entity.getStatus())

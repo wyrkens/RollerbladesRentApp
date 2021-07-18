@@ -21,7 +21,7 @@ public class RollerbladesService {
     private final RollerbladesMapper rollerbladesMapper;
 
     public void createRollerblades(NewRollerblades newRollerblades) {
-        rollerbladesRepository.save(rollerbladesMapper.entityToNewRollerblades(newRollerblades));
+        rollerbladesRepository.save(rollerbladesMapper.newModelToEntity(newRollerblades));
     }
 
     @Transactional
@@ -37,13 +37,13 @@ public class RollerbladesService {
 
     public Rollerblades getById(Long id) {
         return rollerbladesRepository.findByRollerbladesId(id)
-                .map(rollerbladesMapper::rollerbladesToEntity)
+                .map(rollerbladesMapper::entityToModel)
                 .orElseThrow(() -> new IllegalStateException("Rollerblades with id: " + id + " doesn't exists."));
     }
 
     public List<Rollerblades> getAll() {
         return rollerbladesRepository.findAll().stream()
-                .map(rollerbladesMapper::rollerbladesToEntity)
+                .map(rollerbladesMapper::entityToModel)
                 .collect(Collectors.toList());
     }
 }
