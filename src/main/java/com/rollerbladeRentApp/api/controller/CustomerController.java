@@ -5,33 +5,35 @@ import com.rollerbladeRentApp.api.model.NewCustomer;
 import com.rollerbladeRentApp.api.model.UpdateCustomer;
 import com.rollerbladeRentApp.service.CustomerService;
 import lombok.AllArgsConstructor;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/customers")
+@RequestMapping("/customer")
 @AllArgsConstructor
 public class CustomerController {
 
     public final CustomerService customerService;
 
     @PostMapping
-    public ResponseEntity registerCustomer(@RequestBody NewCustomer newCustomer, BindingResult bindingResult) {
+    public String registerCustomer(@ModelAttribute NewCustomer newCustomer, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return ResponseEntity.unprocessableEntity().body(
-                    bindingResult.getAllErrors().stream()
-                            .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                            .collect(Collectors.toList()));
+            return "addCustomer";
         } else {
             customerService.registerCustomer(newCustomer);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return "redirect:/customer";
         }
+    }
+
+    @GetMapping("/add")
+    public ModelAndView displayAddCustomerPage() {
+        ModelAndView modelAndView = new ModelAndView("/addSites/addCustomer");
+        modelAndView.addObject("newCustomer", new NewCustomer());
+        return modelAndView;
     }
 
     @PutMapping
@@ -49,6 +51,13 @@ public class CustomerController {
     @GetMapping
     public List<Customer> getAll() {
         return customerService.getAll();
+    }
+
+    @GetMapping
+    public ModelAndView displayCustomersPage() {
+        ModelAndView modelAndView = new ModelAndView("customers");
+        modelAndView.addObject("customers", customerService.getAll());
+        return modelAndView;
     }
 
     @GetMapping("/{id}")
