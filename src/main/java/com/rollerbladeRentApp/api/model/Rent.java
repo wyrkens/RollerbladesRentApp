@@ -3,6 +3,7 @@ package com.rollerbladeRentApp.api.model;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ public class Rent {
     private Customer customer;
     private Rollerblades rollerblades;
     private int price;
-    private LocalDate loanTime;
-    private LocalDate returnTime;
+    private LocalDateTime loanTime;
+    private LocalDateTime returnTime;
 
 }

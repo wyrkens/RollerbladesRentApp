@@ -1,8 +1,6 @@
 package com.rollerbladeRentApp.service;
 
-import com.rollerbladeRentApp.api.model.Customer;
 import com.rollerbladeRentApp.api.model.Rent;
-import com.rollerbladeRentApp.api.model.Rollerblades;
 import com.rollerbladeRentApp.api.model.UpdateRent;
 import com.rollerbladeRentApp.repository.customer.CustomerEntity;
 import com.rollerbladeRentApp.repository.customer.CustomerRepository;

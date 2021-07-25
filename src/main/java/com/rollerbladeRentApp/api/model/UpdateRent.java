@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -15,5 +15,5 @@ public class UpdateRent {
 
     private Long rentId;
     private int price;
-    private LocalDate returnTime;
+    private LocalDateTime returnTime;
 }

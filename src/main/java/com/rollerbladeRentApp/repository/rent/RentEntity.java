@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -37,10 +37,10 @@ public class RentEntity {
     @ManyToOne
     private RollerbladesEntity rollerblades;
     private int price;
-    private LocalDate loanTime;
-    private LocalDate returnTime;
+    private LocalDateTime loanTime;
+    private LocalDateTime returnTime;
 
-    public RentEntity updateRent(int newPrice, LocalDate newReturnTime) {
+    public RentEntity updateRent(int newPrice, LocalDateTime newReturnTime) {
         this.price = newPrice;
         this.returnTime = newReturnTime;
         return this;
