@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -29,10 +31,10 @@ public class RentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reservationId;
     @JoinColumn(name = "customer_id")
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private CustomerEntity customer;
     @JoinColumn(name = "rollerblades_id")
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private RollerbladesEntity rollerblades;
     private int price;
     private LocalDate loanTime;
