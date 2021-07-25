@@ -2,7 +2,6 @@ package com.rollerbladeRentApp.service;
 
 import com.rollerbladeRentApp.api.model.Rent;
 import com.rollerbladeRentApp.api.model.UpdateRent;
-import com.rollerbladeRentApp.repository.rent.RentEntity;
 import com.rollerbladeRentApp.repository.rent.RentRepository;
 import com.rollerbladeRentApp.service.mapper.RentMapper;
 import lombok.AllArgsConstructor;
@@ -25,7 +24,7 @@ public class RentService {
 
     @Transactional
     public void updateRent(UpdateRent updateRent) {
-        rentRepository.findByRentId(updateRent.getRentId())
+        rentRepository.findById(updateRent.getRentId())
                 .map(rent -> rent.updateRent(updateRent.getPrice(), updateRent.getReturnTime()))
                 .orElseThrow(() -> new IllegalStateException("Rent with id: " + updateRent.getRentId() + " doesn't exists."));
     }
@@ -35,7 +34,7 @@ public class RentService {
     }
 
     public Rent getById(Long id) {
-        return rentRepository.findByRentId(id)
+        return rentRepository.findById(id)
                 .map(rentMapper::entityToModel)
                 .orElseThrow(() -> new IllegalStateException("Rent with id: " + id + " doesn't exists."));
     }

@@ -28,4 +28,14 @@ public class RollerbladesMapper {
                 .price(entity.getPrice())
                 .build();
     }
+
+    public RollerbladesEntity modelToEntity(Rollerblades rollerblades) {
+        return RollerbladesEntity.builder()
+                .status(rollerblades.getStatus())
+                .brand(rollerblades.getBrand())
+                .type(rollerblades.getType())
+                .size(rollerblades.getSize())
+                .price(rollerblades.getPrice())
+                .build();
+    }
 }

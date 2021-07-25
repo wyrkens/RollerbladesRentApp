@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,10 +29,10 @@ public class RentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reservationId;
     @JoinColumn(name = "customer_id")
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private CustomerEntity customer;
     @JoinColumn(name = "rollerblades_id")
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private RollerbladesEntity rollerblades;
     private int price;
     private LocalDate loanTime;

@@ -12,8 +12,8 @@ import java.time.LocalDate;
 public class Rent {
 
     private Long rentId;
-    private Customer customerId;
-    private Rollerblades rollerbladesId;
+    private Customer customer;
+    private Rollerblades rollerblades;
     private int price;
     private LocalDate loanTime;
     private LocalDate returnTime;

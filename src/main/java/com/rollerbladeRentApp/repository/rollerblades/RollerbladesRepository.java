@@ -10,7 +10,7 @@ public interface RollerbladesRepository extends JpaRepository<RollerbladesEntity
 
     Optional<RollerbladesEntity> findByRollerbladesId(Long id);
 
-    List<RollerbladesEntity> findAllByBrandAndAndType(String brand, String type);
+    List<RollerbladesEntity> findAllByBrandAndType(String brand, String type);
 
     List<RollerbladesEntity> findAllByPrice(int price);
 
